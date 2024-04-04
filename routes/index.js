@@ -6,5 +6,4 @@ const { indexRenderAction } = require('../controller/client/index.controller');
 routes.use('/admin', admin)
 routes.use('/', client)
 
-
 module.exports = routes

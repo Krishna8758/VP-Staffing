@@ -24,3 +24,22 @@ passport.use(new LocalStrategy(
         }
     }
 ))
+
+passport.serializeUser(async (user, cb) => {
+    try {
+        return cb(null, user.id)
+    } catch (error) {
+        return cb(error)
+    }
+})
+
+passport.deserializeUser(async (user, cb) => {
+    try {
+        const user = await Admin.findById(id);
+        if(user){
+            return cb(null, user);
+        }
+    } catch (error) {
+        return cb(error);
+    }
+})
